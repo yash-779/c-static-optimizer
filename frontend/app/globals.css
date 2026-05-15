@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #080b12;
+  --bg-secondary: #0d1117;
+  --bg-card: #0d1424;
+  --accent-purple: #a855f7;
+  --accent-cyan: #22d3ee;
+  --accent-green: #10b981;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--bg-primary);
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #0d1117; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+/* Monaco Editor override */
+.monaco-editor { border-radius: 6px; overflow: hidden; }
+.monaco-editor .margin { background: #0a0f1a !important; }
+.monaco-editor-background { background: #0a0f1a !important; }
+
+/* CFG graph */
+.cfg-svg-container svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Pill tags */
+.opt-badge {
+  @apply text-[10px] font-bold px-1.5 py-0.5 rounded font-mono;
+}
+
+/* Glow effects */
+.glow-purple { box-shadow: 0 0 20px rgba(168,85,247,0.2); }
+.glow-cyan { box-shadow: 0 0 20px rgba(34,211,238,0.2); }
+.glow-green { box-shadow: 0 0 20px rgba(16,185,129,0.2); }
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: #0d1424;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #a855f7, #22d3ee, #10b981);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Tab underline animation */
+.tab-active {
+  border-bottom: 2px solid var(--accent-purple);
+}
+
+/* Block explorer slide-in */
+@keyframes slideIn {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.slide-in { animation: slideIn 0.2s ease; }
+
+/* Pulse animation for run button */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(168,85,247,0.4); }
+  50% { box-shadow: 0 0 24px rgba(168,85,247,0.8); }
+}
+.btn-run { animation: pulse-glow 2s infinite; }

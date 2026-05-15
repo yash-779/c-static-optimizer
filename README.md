@@ -1,6 +1,10 @@
 # OptiC - C Compiler Optimization Pipeline
 
 OptiC is an educational C compiler static analysis and optimization visualizer. It takes standard C code, generates an Abstract Syntax Tree (AST) and Control Flow Graph (CFG), and applies various optimization passes, visualizing the impact of each transformation in a high-fidelity, interactive dashboard.
+<div align="center">
+  <!-- TODO: Place your 'dashboard.png' file in the same folder as this README -->
+  <img src="dashboard.png" alt="OptiC Simulator Dashboard" width="100%"/>
+</div>
 
 ## ✨ Features
 *   **Modular Optimization Pipeline:** Apply passes in any order to see how they cascade and interact.
